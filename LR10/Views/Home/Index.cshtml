@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Consultation Registration Form";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form method="post" asp-action="Register">
+    <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" class="form-control" id="fullName" name="fullName" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label for="consultationDate">Consultation Date:</label>
+        <input type="datetime-local" class="form-control" id="consultationDate" name="consultationDate" required>
+    </div>
+    <div class="form-group">
+        <label for="product">Product:</label>
+        <select class="form-control" id="product" name="product" required>
+            <option value="">Select a product</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="C#">C#</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="Basics">Basics</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
